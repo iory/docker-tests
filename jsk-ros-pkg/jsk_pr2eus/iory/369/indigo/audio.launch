@@ -1,0 +1,14 @@
+<launch>
+
+  <node name="robotsound"
+        pkg="sound_play" type="soundplay_node.py"
+        output="screen" >
+    <remap from="sound_play" to="robotsound" />
+  </node>
+
+  <node name="play_initial_voice"
+        pkg="roseus" type="roseus"
+        args="$(find pr2eus)/speak.l &quot;(progn (ros::roseus \&quot;play_initial_voice\&quot;) (while (/= 0 (unix:system \&quot;rosnode list | grep robotsound\&quot;)) (unix:sleep 4)) (unix:sleep 6) (speak-en \&quot;test speak.l.\&quot;) (exit))&quot;"
+        output="screen"/>
+
+</launch>

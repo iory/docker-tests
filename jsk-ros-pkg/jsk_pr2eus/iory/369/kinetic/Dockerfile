@@ -29,6 +29,7 @@ RUN touch /root/.bashrc && \
     echo "rossetmaster localhost"
 
 COPY ./ros_entrypoint.sh /
+COPY ./audio.launch /
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
