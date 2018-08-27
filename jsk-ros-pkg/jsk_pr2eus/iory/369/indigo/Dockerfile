@@ -11,12 +11,14 @@ RUN apt update && \
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
-    git clone -b kinetic-speak https://github.com/iory/jsk_pr2eus
+    git clone --depth 1 -b kinetic-speak https://github.com/iory/jsk_pr2eus && \
+    rm -rf jsk_pr2eus/.git
 
 RUN cd /ros_ws && \
     rosdep update && \
     apt update && \
-    rosdep install --from-paths --ignore-src -y -r src
+    rosdep install --from-paths --ignore-src -y -r src && \
+    apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN mv /bin/sh /bin/sh_tmp && ln -s /bin/bash /bin/sh
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash; cd /ros_ws; catkin build
