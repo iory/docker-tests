@@ -11,7 +11,7 @@ RUN pip install numpy
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
-    git clone --depth 1 -b kinetic-speak https://github.com/jsk-ros-pkg/jsk_3rdparty
+    git clone --depth 1 -b master https://github.com/jsk-ros-pkg/jsk_3rdparty
 
 RUN cd /ros_ws && \
     rosdep update && \
