@@ -7,7 +7,8 @@ RUN apt update && \
     python-catkin-tools \
     python-pip
 
-RUN pip install numpy
+RUN python -m pip install -U pip && \
+    python -m pip install -U numpy
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
