@@ -4,6 +4,9 @@ LABEL maintainer "iory <ab.ioryz@gmail.com>"
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
+    python-pip \
+    python-rosinstall \
+    python-wstool \
     python-catkin-tools
 
 RUN mkdir -p /ros_ws/src && \
