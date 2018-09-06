@@ -12,7 +12,7 @@ RUN apt update && \
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
-    git clone https://github.com/jsk-ros-pkg/jsk_visualization.git
+    git clone --depth 1 -b kinetic-hist https://github.com/knorth55/jsk_visualization.git
 
 
 RUN cd /ros_ws && \
