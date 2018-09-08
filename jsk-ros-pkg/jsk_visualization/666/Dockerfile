@@ -37,9 +37,9 @@ RUN mkdir -p /src && \
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
-    git clone -b visualize-segment https://github.com/iory/jsk_visualization.git && \
+    git clone -b visualize-segment https://github.com/mmurooka/jsk_visualization.git && \
     git clone https://github.com/jsk-ros-pkg/jsk_common
-    # git clone -b visualize-segment https://github.com/mmurooka/jsk_visualization.git
+
 
 
 RUN cd /ros_ws && \
