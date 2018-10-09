@@ -12,7 +12,8 @@ RUN apt update && \
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
-    git clone --depth 1 https://github.com/jsk-ros-pkg/jsk_visualization.git
+    git clone --depth 1 https://github.com/jsk-ros-pkg/jsk_visualization.git && \
+    git clone --depth 1 https://github.com/jsk-ros-pkg/jsk_common
 
 RUN cd /ros_ws && \
     rosdep update && \
@@ -20,7 +21,7 @@ RUN cd /ros_ws && \
     rosdep install --from-paths --ignore-src -y -r src
 
 RUN mv /bin/sh /bin/sh_tmp && ln -s /bin/bash /bin/sh
-RUN source /opt/ros/${ROS_DISTRO}/setup.bash; cd /ros_ws; catkin build
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash; cd /ros_ws; catkin build jsk_visualization
 RUN rm /bin/sh && mv /bin/sh_tmp /bin/sh
 RUN touch /root/.bashrc && \
     echo "source /ros_ws/devel/setup.bash\n" >> /root/.bashrc && \
