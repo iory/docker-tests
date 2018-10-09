@@ -8,7 +8,7 @@ RUN apt update && \
     python-rosinstall \
     python-wstool \
     ros-${ROS_DISTRO}-jsk-tools \
-    python-sklearn
+    python-pip
 
 RUN mkdir -p /ros_ws/src && \
     cd /ros_ws/src && \
