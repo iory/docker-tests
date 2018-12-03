@@ -113,8 +113,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y \
 
 RUN mkdir -p /ros_ws/src && \
   cd /ros_ws/src && \
-  git clone --depth 1 https://github.com/jsk-ros-pkg/jsk_visualization.git && \
-  git clone --depth 1 https://github.com/jsk-ros-pkg/jsk_common
+  git clone --depth 1 https://github.com/jsk-ros-pkg/jsk_recognition
 
 RUN cd /ros_ws && \
   rosdep update && \
