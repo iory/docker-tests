@@ -131,6 +131,8 @@ RUN touch /root/.bashrc && \
   echo "rossetip\n" >> /root/.bashrc && \
   echo "rossetmaster localhost"
 
+RUN pip install chainer cupy-cuda90 chainer-mask-rcnn
+
 COPY ./ros_entrypoint.sh /
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
