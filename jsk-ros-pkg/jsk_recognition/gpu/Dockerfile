@@ -120,6 +120,9 @@ RUN cd /ros_ws && \
   apt update && \
   rosdep install --from-paths --ignore-src -y -r src
 
+RUN DEBIAN_FRONTEND=noninteractive apt install -y \
+  python-catkin-tools
+
 RUN mv /bin/sh /bin/sh_tmp && ln -s /bin/bash /bin/sh
 RUN source /opt/ros/${ROS_DISTRO}/setup.bash; cd /ros_ws; catkin build jsk_recognition
 RUN rm /bin/sh && mv /bin/sh_tmp /bin/sh
